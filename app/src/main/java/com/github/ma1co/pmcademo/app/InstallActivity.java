@@ -39,7 +39,7 @@ public class InstallActivity extends BaseActivity implements AdapterView.OnItemC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list);
+        setContentView(R.layout.list );
 
         listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(this);

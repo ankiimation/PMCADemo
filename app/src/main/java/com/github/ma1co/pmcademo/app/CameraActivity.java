@@ -1,5 +1,6 @@
 package com.github.ma1co.pmcademo.app;
 
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -64,6 +65,7 @@ public class CameraActivity extends BaseActivity implements SurfaceHolder.Callba
 
     @Override
     protected boolean onShutterKeyDown() {
+        (Camera.open()).
         camera.getNormalCamera().takePicture(null, null, null);
         return true;
     }

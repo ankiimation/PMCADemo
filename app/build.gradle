@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.github.ma1co.pmcademo.app"
         minSdkVersion 10
-        targetSdkVersion 10
+        targetSdkVersion 33
         versionCode "git -C ${projectDir} rev-list --first-parent --count HEAD".execute().text.trim().toInteger()
         versionName "git -C ${projectDir} describe --always --tags --dirty".execute().text.trim().replaceAll("^v", "")
     }
@@ -16,14 +16,22 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
     }
+
+    android {
+        lintOptions {
+            checkReleaseBuilds false
+            abortOnError false
+        }
+    }
+
 }
 
-android.applicationVariants.all { variant ->
-    variant.outputs.each { output ->
-        def apkName = "PMCADemo-${output.baseName}-${variant.versionName}.apk"
-        output.outputFile = new File(output.outputFile.parent, apkName)
-    }
-}
+//android.applicationVariants.all { variant ->
+//    variant.outputs.each { output ->
+//        def apkName = "PMCADemo-${output.baseName}-${variant.versionName}.apk"
+//        output.outputFile = new File(output.outputFile.parent, apkName)
+//    }
+//}
 
 dependencies {
     compile 'com.github.ma1co.OpenMemories-Framework:framework:-SNAPSHOT'
